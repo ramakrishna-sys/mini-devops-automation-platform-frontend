@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini DevOps Platform Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h1>Mini DevOps Platform</h1>
+
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input
+            type="text"
+            id="username"
+            class="form-control"
+            placeholder="Enter Username">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter Password">
+    </div>
+
+    <button
+        class="btn btn-primary w-100"
+        onclick="loginUser()">
+        Login
+    </button>
+
+    <div id="message" class="mt-3 text-center"></div>
+
+</div>
+
+<script>
+
+const API_URL = "http://localhost:8081";
+
+async function loginUser() {
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("message");
+
+    message.innerHTML = "";
+
+    if(username === "" || password === ""){
+
+        message.innerHTML =
+            "<span class='text-danger'>Please enter username and password.</span>";
+        return;
+
+    }
+
+    try{
+
+        const response = await fetch(API_URL + "/api/auth/login",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                username:username,
+                password:password
+
+            })
+
+        });
+
+        const result = await response.json();
+
+        if(result.success){
+
+            localStorage.setItem(
+                "loggedInUser",
+                JSON.stringify(result.data)
+            );
+
+            window.location.href = "dashboard.html";
+
+        }else{
+
+            message.innerHTML =
+                "<span class='text-danger'>" +
+                result.message +
+                "</span>";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        message.innerHTML =
+            "<span class='text-danger'>Cannot connect to backend server.</span>";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

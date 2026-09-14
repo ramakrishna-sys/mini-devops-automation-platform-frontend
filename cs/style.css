@@ -1,0 +1,259 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* ===========================
+   Login Page
+=========================== */
+
+.login-container{
+
+    width:420px;
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+.login-container h1{
+
+    text-align:center;
+
+    color:#1f2937;
+
+    margin-bottom:30px;
+
+}
+
+.login-container label{
+
+    font-weight:bold;
+
+}
+
+.login-container input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:8px;
+
+    margin-bottom:20px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:6px;
+
+}
+
+.login-container button{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+.login-container button:hover{
+
+    background:#1d4ed8;
+
+}
+
+#message{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.bg-dark{
+
+    background:#111827 !important;
+
+}
+
+.nav-link{
+
+    border-radius:6px;
+
+    transition:0.3s;
+
+}
+
+.nav-link:hover{
+
+    background:#2563eb;
+
+    color:white !important;
+
+}
+
+.nav-link.text-warning{
+
+    background:#2563eb;
+
+    color:white !important;
+
+}
+
+/* ===========================
+   Dashboard Cards
+=========================== */
+
+.card{
+
+    border:none;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+
+}
+
+.card h2{
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   Tables
+=========================== */
+
+.table{
+
+    background:white;
+
+}
+
+.table thead{
+
+    background:#111827;
+
+    color:white;
+
+}
+
+.table tbody tr:hover{
+
+    background:#eef4ff;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn-primary{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ===========================
+   Badges
+=========================== */
+
+.badge{
+
+    font-size:14px;
+
+    padding:8px 12px;
+
+}
+
+/* ===========================
+   Health Page
+=========================== */
+
+#backendStatus{
+
+    font-size:15px;
+
+}
+
+#applicationName,
+#backendMessage{
+
+    font-weight:500;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .login-container{
+
+        width:90%;
+
+    }
+
+    .vh-100{
+
+        height:auto !important;
+
+    }
+
+}
